@@ -3,4 +3,4 @@ for k in pairs(package.loaded) do
 end
 
 
-require("cyber2077.init")
+require("cyber2077")

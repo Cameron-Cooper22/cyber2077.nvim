@@ -323,7 +323,7 @@ end
 M.colorscheme = function()
   vim.api.nvim_command("hi clear")
   if vim.fn.exists("syntax_on") then
-    vim.api.nvim_comman("syntax reset")
+    vim.api.nvim_command("syntax reset")
   end
   vim.o.termguicolors = true
   vim.g.colors_name = "cyber2077"

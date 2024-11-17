@@ -1,1 +1,1 @@
-lua require  'lightline'
+lua require 'lightline'

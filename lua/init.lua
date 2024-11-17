@@ -1,1 +1,1 @@
-require("cyber2077").setup()
+require("cyber2077").colorscheme()

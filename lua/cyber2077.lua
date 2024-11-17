@@ -1,42 +1,38 @@
 local M = {}
+local function highlight(group, styles)
+    local gui = styles.gui and 'gui='..styles.gui or 'gui=NONE'
+    local sp = styles.sp and 'guisp='..styles.sp or 'guisp=NONE'
+    local fg = styles.fg and 'guifg='..styles.fg or 'guifg=NONE'
+    local bg = styles.bg and 'guibg='..styles.bg or 'guibg=NONE'
+    vim.api.nvim_command('highlight '..group..' '..gui..' '..sp..' '..fg..' '..bg)
+end
 
-function M.setup()
+local bg_darker      = '#050a0e'
+local bg_dark        = '#0c0c0c'
+local bg             = '#202020'
+local bg_light       = '#32374d'
+local bg_lighter     = '#444267'
+local grey           = '#8796b0'
+local red            = '#ff008d'
+local heavy_red      = '#ff0000'
+local green          = '#20ff20'
+local pale_green     = '#2cd389'
+local blue           = '#3a46ff'
+local yellow         = '#fcee09'
+local orange         = '#f78c6c'
+local purple         = '#c722ea'
+local cyan           = '#00f0ff'
+local fg             = '#959dcb'
+local fg_light       = '#a6accd'
+local fg_dark        = '#676e96'
+local hollow         = '#424760'
+local hollow_lighter = '#30354e'
+local white          = '#ffffff'
 
+-- }}}
 
-  local function highlight(group, styles)
-      local gui = styles.gui and 'gui='..styles.gui or 'gui=NONE'
-      local sp = styles.sp and 'guisp='..styles.sp or 'guisp=NONE'
-      local fg = styles.fg and 'guifg='..styles.fg or 'guifg=NONE'
-      local bg = styles.bg and 'guibg='..styles.bg or 'guibg=NONE'
-      vim.api.nvim_command('highlight '..group..' '..gui..' '..sp..' '..fg..' '..bg)
-  end
-  
-  local bg_darker      = '#050a0e'
-  local bg_dark        = '#0c0c0c'
-  local bg             = '#202020'
-  local bg_light       = '#32374d'
-  local bg_lighter     = '#444267'
-  local grey           = '#8796b0'
-  local red            = '#ff008d'
-  local heavy_red      = '#ff0000'
-  local green          = '#20ff20'
-  local pale_green     = '#2cd389'
-  local blue           = '#3a46ff'
-  local yellow         = '#fcee09'
-  local orange         = '#f78c6c'
-  local purple         = '#c722ea'
-  local cyan           = '#00f0ff'
-  local fg             = '#959dcb'
-  local fg_light       = '#a6accd'
-  local fg_dark        = '#676e96'
-  local hollow         = '#424760'
-  local hollow_lighter = '#30354e'
-  local white          = '#ffffff'
-  
-  -- }}}
-  
-  -- Editor Highlight Groups {{{
-  
+-- Editor Highlight Groups {{{
+local set_groups = function()
   local editor_syntax = {
       CursorLine   = { bg = bg_light },
       Cursor       = { fg = bg_dark, bg = yellow },
@@ -298,11 +294,11 @@ function M.setup()
   for group, styles in pairs(lang_syntax) do
       highlight(group, styles)
   end
-  
-  -- }}}
-  
-  -- Setting Neovim Terminal Color {{{
-  
+end
+-- }}}
+
+-- Setting Neovim Terminal Color {{{
+local set_terminal_colors = function()
   vim.g.terminal_color_0          = bg_dark
   vim.g.terminal_color_1          = red
   vim.g.terminal_color_2          = green
@@ -321,9 +317,18 @@ function M.setup()
   vim.g.terminal_color_15         = white
   vim.g.terminal_color_background = bg_dark
   vim.g.terminal_color_foreground = fg_light
-  
+end 
   -- }}}
 
+M.colorscheme = function()
+  vim.api.nvim_command("hi clear")
+  if vim.fn.exists("syntax_on") then
+    vim.api.nvim_comman("syntax reset")
+  end
+  vim.o.termguicolors = true
+  vim.g.colors_name = "cyber2077"
+  set_terminal_colors()
+  set_groups()
 end
 
 return M

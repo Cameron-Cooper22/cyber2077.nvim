@@ -8,7 +8,7 @@ local function highlight(group, styles)
 end
 
 local bg_darker      = '#050a0e'
-local bg_dark        = '#0c0c0c'
+local bg_dark        = '#050505'
 local bg             = '#202020'
 local bg_light       = '#32374d'
 local bg_lighter     = '#444267'

@@ -1,0 +1,2 @@
+add support for todo plugin, change the color from purple to cyan.
+you took a picture of the values that you want it to be so just use that.

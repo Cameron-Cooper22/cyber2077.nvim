@@ -145,7 +145,7 @@ local set_groups = function()
       PreCondit      = { fg = yellow },
   
       Type           = { fg = red },
-      StorageClass   = { fg = yellow },
+      StorageClass   = { fg = red },
       Structure      = { fg = purple },
       Typedef        = { fg = yellow },
   
@@ -220,6 +220,9 @@ local set_groups = function()
       zshNumber          = code_syntax.Number,
       zshSubst           = { fg = yellow },
       zshSubstDelim      = { fg = cyan },
+
+      -- css
+      cssDefinition	= { fg = red },
   
       -- rust polyglot (rust.vim)
       rustKeyword     = { fg = red },

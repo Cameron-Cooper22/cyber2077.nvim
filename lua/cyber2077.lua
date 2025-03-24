@@ -144,7 +144,7 @@ local set_groups = function()
       PreProc        = { fg = red },
       PreCondit      = { fg = yellow },
   
-      Type           = { fg = yellow },
+      Type           = { fg = red },
       StorageClass   = { fg = red },
       Structure      = { fg = purple },
       Typedef        = { fg = yellow },

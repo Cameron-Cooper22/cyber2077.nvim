@@ -127,7 +127,7 @@ local set_groups = function()
       Float          = { fg = purple },
       Boolean        = { fg = white, gui = 'bold' },
   
-      Identifier     = { fg = red },
+      Identifier     = { fg = fg_light },
       Function       = { fg = cyan, gui = 'italic' },
   
       Statement      = { fg = blue, gui = 'italic' },
